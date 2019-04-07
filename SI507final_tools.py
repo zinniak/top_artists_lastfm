@@ -56,20 +56,26 @@ class Track(db.Model):
 
 # adding artists to database
 def create_artist(row):
-    artist = Artist(name=row[0],listeners=row[1],playcount=row[2],bio=row[3],url=row[4],image=row[5])
-    session.add(artist)
-    session.commit()
-    # print(artist)
-    return artist
+    if Artist.query.filter_by(name=row[0]).first():
+        return "Artist already exists"
+    else:
+        artist = Artist(name=row[0],listeners=row[1],playcount=row[2],bio=row[3],url=row[4],image=row[5])
+        session.add(artist)
+        session.commit()
+        # print(artist)
+        return artist
 
 # adding tracks to database
 def create_track(row):
-    artist = Artist.query.filter_by(name=row[1]).first()
+    if Track.query.filter_by(title=row[0]).first():
+        return "Track already exists"
+    else:
+        artist = Artist.query.filter_by(name=row[1]).first()
     # print(artist)
-    title = Track(title=row[0],playcount=row[2],url=row[3],image=row[4],artist_id=artist.id)
-    session.add(title)
-    session.commit()
-    return title
+        title = Track(title=row[0],playcount=row[2],url=row[3],image=row[4],artist_id=artist.id)
+        session.add(title)
+        session.commit()
+        return title
 
 # creating database
 db.create_all()
@@ -99,7 +105,6 @@ for track in tracks_list[1:]:
     create_track(track)
 
 ##### creating graphs ######
-
 df_artists = pd.DataFrame(artists_list)
 df_artists.columns = df_artists.iloc[0]
 df_artists = df_artists.drop([0])
