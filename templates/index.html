@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Top Lastfm Tracks</title>
+    <style>
+    h1{
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .main{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .track{
+      width:80%;
+      border: 2px solid black;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .track img{
+      width:95%;
+      margin: auto;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href = "http://127.0.0.1:5000/">Home</a></li>
+          <li><a href = "http://127.0.0.1:5000/artist_listener_chart">Top Artist Listeners Count</a></li>
+          <li><a href = 'http://127.0.0.1:5000/all_artists'>List of Artists</a><li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+    <h1> Lastfm Top Tracks </h1>
+    <div class="main">
+    {% for tr in all_tracks %}
+    <div class="track">
+      <h2><a href = "{{ tr[3] }}">{{ tr[0] }}</a></h2>
+      <img src="{{ tr[4] }}"/>
+      <h3> By: {{ tr[1] }}</h3>
+      <p> Playcount: {{ tr[2] }}</p>
+      </div>
+    {% endfor %}
+</div>
+</main>
+  </body>
+</html>
