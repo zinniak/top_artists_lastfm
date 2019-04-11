@@ -62,7 +62,6 @@ def create_artist(row):
         artist = Artist(name=row[0],listeners=row[1],playcount=row[2],bio=row[3],url=row[4],image=row[5])
         session.add(artist)
         session.commit()
-        # print(artist)
         return artist
 
 # adding tracks to database
@@ -105,9 +104,23 @@ for track in tracks_list[1:]:
     create_track(track)
 
 ##### creating graphs ######
+
+# creating pandas dataframe
 df_artists = pd.DataFrame(artists_list)
 df_artists.columns = df_artists.iloc[0]
-df_artists = df_artists.drop([0])
+df_artists = df_artists.drop([0]) # dropping title row
 df_artists["Listeners"] = pd.to_numeric(df_artists["Listeners"])
+from matplotlib import rcParams # to adjust the layout of the figure when saves as image
+rcParams.update({'figure.autolayout': True})
+# plotting listeners
 df_artists.plot.bar(x='Name', y='Listeners')
-plt.savefig('listeners.png')
+plt.xlabel('Artist')
+plt.savefig('static/listeners.png')
+# plotting playcount
+df_artists["Playcount"] = pd.to_numeric(df_artists["Playcount"])
+df_artists.plot.bar(x='Name', y='Playcount',color=['red'])
+plt.xlabel('Artist')
+plt.savefig('static/playcounts.png')
+
+# saving cleaned artist file as CSV
+df_artists.to_csv("cleaned_artists.csv")
