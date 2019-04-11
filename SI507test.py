@@ -22,15 +22,15 @@ class StepTwo(unittest.TestCase):
     def test_names_track_file(self):
         with open("top_tracks.csv") as csvfile:
             self.assertTrue(csvfile is not None, "testing that file exists")
-            content = csv_file.read()
-            self.assertTrue("Title" in content.split("\n")[0])
-            self.assertTrue("Artist" in content.split("\n")[1])
+            content = csvfile.read()
+            self.assertTrue('"Title"' in content.split("\n")[0])
+            self.assertTrue('"Artist"' in content.split("\n")[0])
     def test_names_artist_file(self):
-        with open("top_tracks.csv") as csvfile:
+        with open("top_artists.csv") as csvfile2:
             self.assertTrue(csvfile is not None, "testing that file exists")
-            content = csv_file.read()
-            self.assertTrue("Name" in content.split("\n")[0])
-            self.assertTrue("Bio" in content.split("\n")[3])
+            content2 = csvfile2.read()
+            self.assertTrue('"Name"' in content2.split("\n")[0])
+            self.assertTrue('"Bio"' in content2.split("\n")[0])
 
 # testing if artists file is clean
 class StepThree(unittest.TestCase):
