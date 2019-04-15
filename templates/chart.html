@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Top Artist Listener Count</title>
+    <style>
+    h1{
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .main{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .graph{
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href = "http://127.0.0.1:5000/">Home</a></li>
+          <li><a href = 'http://127.0.0.1:5000/all_artists'>List of Artists</a></li>
+          <li><a href = "http://127.0.0.1:5000//artist_statistics">Artist Statistics</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Top Artist Listener Count</h1>
+    <div class="main">
+      <div class='graph'>
+        <h2>Number of Playcounts</h2>
+        <img src={{ url_for('static', filename="playcounts.png") }}>
+      </div>
+      <div class='graph'>
+        <h2>Number of Listeners</h2>
+        <img src={{ url_for('static', filename="listeners.png") }}>
+      </div>
+  </div>
+  </body>
+</html>

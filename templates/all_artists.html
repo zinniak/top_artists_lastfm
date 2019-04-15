@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<style>
+h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+#main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+</style>
+  <head>
+    <meta charset="utf-8">
+    <script src="{{ url_for('static', filename='artist_info.js') }}"></script> 
+    <title>Lastfm Top Tracks List of Artists</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href = "http://127.0.0.1:5000/">Home</a></li>
+          <li><a href = 'http://127.0.0.1:5000/all_artists'>List of Artists</a></li>
+          <li><a href = "http://127.0.0.1:5000/artist_statistics">Artist Statistics</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+    <h1>Lastfm Top Tracks: List of Artists</h1>
+      <div id='main'>
+    <div class="list">
+        <ul>
+          {% for art in all_artists %}
+          <li onmouseover="getPic('{{ art[4] }}')")>{{ art[0] }} - {{ art[1] }} listeners</li>
+          <div onclick= 'getBio({{ art[3] }}))'>gggg</div>
+          <br>
+    {% endfor %}
+    </ul>
+  </div>
+      <div class='details'>
+        <img class="currentpic" src= ""/>
+        <p class="bio"></p>
+      </div>
+</div>
+</main>
+  </body>
+
+</html>
