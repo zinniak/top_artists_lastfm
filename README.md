@@ -25,8 +25,8 @@ This should be a brief description of what your project is and does.
 
 ## In this repository:
 *  static (Directory)
-  * artist_info.js
-  - listeners.png
+    * artist_info.js
+    * listeners.png
   - playcounts.png
 -  templates (Directory)
   - all_artists.html
