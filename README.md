@@ -6,9 +6,10 @@
 ## Project Description
 This should be a brief description of what your project is and does.
 ## How to run
-1.  First, you should ... (e.g. install all requirements with `pip install -r requirements.txt`)
-2.  Second, you should ... (e.g. run `python programname.py runserver` or whatever else is appropriate)
-3.  Anything else
+1.  First, you should install requirement with `pip install -r requirements.txt`.
+2.  Second, you should run the `SI507project_tools.py` file to create the necessary files for the Flask application to run.
+3.  To run the Flask application, type `python SI507project_app.py runserver` in the command prompt.
+4. The application will begin running, open up a tab in a web-browser and type the following in the URL bar: `127.0.0.1:5000`.
 ## How to use
 1.  A useful instruction goes here
 2.  A useful second step here
@@ -20,19 +21,23 @@ This should be a brief description of what your project is and does.
 -  `/artist_statistics` -> this route displays bar graphs showing the count of listeners and play counts these artists have on Last.fm.
 
 ## How to run tests
-1.  First... (e.g. access a certain directory if necessary)
-2.  Second (e.g. any other setup necessary)
-3.  etc (e.g. run the specific test file)NOTE: Need not have 3 steps, but should have as many as are appropriate!
+1.  Run the `SI507project_tests.py` file.
+
 ## In this repository:
--  static (Directory)
-  - artist_info.js
+*  static (Directory)
+  * artist_info.js
   - listeners.png
   - playcounts.png
 -  templates (Directory)
-  - 
--  File in directory
--  File name
--  File name
+  - all_artists.html
+  - chart.html
+  - index.html
+-  README.md
+- SI507project_app.py
+- SI507project_tests.py
+- SI507project_tools.py
+- database_model.JPG
+
 ---
 ## Code Requirements for Grading
 Please check the requirements you have accomplished in your code as demonstrated.
@@ -40,33 +45,33 @@ Please check the requirements you have accomplished in your code as demonstrated
 -  [ ] This is an incomplete requirement.
 Below is a list of the requirements listed in the rubric for you to copy and paste.  See rubric on Canvas for more details.
 ### General
--  [ ] Project is submitted as a Github repository
--  [ ] Project includes a working Flask application that runs locally on a computer
--  [ ] Project includes at least 1 test suite file with reasonable tests in it.
+-  [x] Project is submitted as a Github repository
+-  [x] Project includes a working Flask application that runs locally on a computer
+-  [x] Project includes at least 1 test suite file with reasonable tests in it.
 -  [ ] Includes a `requirements.txt` file containing all required modules to run program
 -  [ ] Includes a clear and readable README.md that follows this template
 -  [ ] Includes a sample .sqlite/.db file
--  [ ] Includes a diagram of your database schema
+-  [x] Includes a diagram of your database schema
 -  [ ] Includes EVERY file needed in order to run the project
 -  [ ] Includes screenshots and/or clear descriptions of what your project should look like when it is working
 ### Flask Application
--  [ ] Includes at least 3 different routes
--  [ ] View/s a user can see when the application runs that are understandable/legible for someone who has NOT taken this course
--  [ ] Interactions with a database that has at least 2 tables
--  [ ] At least 1 relationship between 2 tables in database
--  [ ] Information stored in the database is viewed or interacted with in some way
+-  [x] Includes at least 3 different routes
+-  [x] View/s a user can see when the application runs that are understandable/legible for someone who has NOT taken this course
+-  [x] Interactions with a database that has at least 2 tables
+-  [x] At least 1 relationship between 2 tables in database
+-  [x] Information stored in the database is viewed or interacted with in some way
 ### Additional Components (at least 6 required)
--  [ ] Use of a new module
--  [ ] Use of a second new module
+-  [x] Use of a new module
+-  [x] Use of a second new module
 -  [ ] Object definitions using inheritance (indicate if this counts for 2 or 3 of the six requirements in a parenthetical)
 -  [ ] A many-to-many relationship in your database structure
 -  [ ] At least one form in your Flask application
--  [ ] Templating in your Flask application
--  [ ] Inclusion of JavaScript files in the application
--  [ ] Links in the views of Flask application page/s
+-  [x] Templating in your Flask application
+-  [x] Inclusion of JavaScript files in the application
+-  [x] Links in the views of Flask application page/s
 -  [ ] Relevant use of `itertools` and/or `collections`
 -  [ ] Sourcing of data using web scraping
--  [ ] Sourcing of data using web REST API requests
+-  [x] Sourcing of data using web REST API requests
 -  [ ] Sourcing of data using user input and/or a downloaded .csv or .json dataset
 -  [ ] Caching of data you continually retrieve from the internet in some way
 ### Submission
