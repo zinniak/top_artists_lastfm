@@ -4,7 +4,7 @@
 [Link to this repository](https://github.com/zinniak/SI507Final_Project_zinniak)
 ---
 ## Project Description
-My project is a Flask app that shows details about the top 50 music tracks on the music platform Last.fm. The home page will have details about each of the tracks. There is a route to look at the list of all the artists that have songs in the Last.fm top 50 tracks list. Another route shows bar charts of the number of listeners and play count each of these artists have on Last.fm. Users can click on each artist’s name on the artist details route to see their picture and bio. Users can also click on a navigation bar to navigate through the different routes. 
+My project is a Flask app that shows details about the top 50 music tracks on the music platform Last.fm. The home page will have details about each of the tracks. There is a route to look at the list of all the artists that have songs in the Last.fm top 50 tracks list. Another route shows bar charts of the number of listeners and play count each of these artists have on Last.fm. Users can click on each artist’s name on the artist details route to see their picture and bio. Users can also click on a navigation bar to navigate through the different routes.
 ## How to run
 1.  First, you should install requirement with `pip install -r requirements.txt`.
 2.  Second, you should run the `SI507project_tools.py` file to create the necessary files for the Flask application to run.
@@ -26,17 +26,17 @@ My project is a Flask app that shows details about the top 50 music tracks on th
 ## In this repository:
 *  static (Directory)
     * artist_info.js
-    * listeners.png
-    * playcounts.png
 *  templates (Directory)
     * all_artists.html
     * chart.html
     * index.html
-*  README.md
+* README.md
 * SI507project_app.py
 * SI507project_tests.py
 * SI507project_tools.py
 * database_model.JPG
+* requirement.txt
+* sample_tracks.db
 
 ---
 ## Code Requirements for Grading
@@ -48,11 +48,11 @@ Below is a list of the requirements listed in the rubric for you to copy and pas
 -  [x] Project is submitted as a Github repository
 -  [x] Project includes a working Flask application that runs locally on a computer
 -  [x] Project includes at least 1 test suite file with reasonable tests in it.
--  [ ] Includes a `requirements.txt` file containing all required modules to run program
+-  [x] Includes a `requirements.txt` file containing all required modules to run program
 -  [ ] Includes a clear and readable README.md that follows this template
--  [ ] Includes a sample .sqlite/.db file
+-  [x] Includes a sample .sqlite/.db file
 -  [x] Includes a diagram of your database schema
--  [ ] Includes EVERY file needed in order to run the project
+-  [x] Includes EVERY file needed in order to run the project
 -  [ ] Includes screenshots and/or clear descriptions of what your project should look like when it is working
 ### Flask Application
 -  [x] Includes at least 3 different routes
