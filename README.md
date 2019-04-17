@@ -1,6 +1,5 @@
 # SI507Final_Project_zinniak
 
-# Project TitleName
 [Link to this repository](https://github.com/zinniak/SI507Final_Project_zinniak)
 ---
 ## Project Description
