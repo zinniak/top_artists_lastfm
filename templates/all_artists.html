@@ -9,11 +9,21 @@ h1{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
+.details{
+  position: fixed;
+  right: 300px;
+}
+.list li{
+  text-decoration: underline;
+  color: red;
+}
+li:hover{
+  cursor:pointer;
+}
 </style>
   <head>
     <meta charset="utf-8">
-    <script src="{{ url_for('static', filename='artist_info.js') }}"></script> 
+    <script src="{{ url_for('static', filename='artist_info.js') }}"></script>
     <title>Lastfm Top Tracks List of Artists</title>
   </head>
   <body>
@@ -28,19 +38,21 @@ h1{
     </header>
     <main>
     <h1>Lastfm Top Tracks: List of Artists</h1>
+      <h2>Click on an artist name to see their picture!</h2>
       <div id='main'>
     <div class="list">
         <ul>
           {% for art in all_artists %}
-          <li onmouseover="getPic('{{ art[4] }}')")>{{ art[0] }} - {{ art[1] }} listeners</li>
-          <div onclick= 'getBio({{ art[3] }}))'>gggg</div>
+          <li onclick="getPic('{{ art[4] }}')")>{{ art[0] }} - {{ art[1] }} listeners</li>
+          <div class = 'bio'>
+            <p>{{ art[3] }} Learn more at: <a href="{{ art[5] }}">{{ art[5] }}</a></p>
+          </div>
           <br>
     {% endfor %}
     </ul>
   </div>
       <div class='details'>
         <img class="currentpic" src= ""/>
-        <p class="bio"></p>
       </div>
 </div>
 </main>
