@@ -21,8 +21,7 @@ def see_all_songs():
     list_artists = []
     artists = Artist.query.all()
     for a in artists:
-        a.bio = '"' + a.bio + '"'
-        list_artists.append((a.name,a.listeners,a.id,a.bio,a.image))
+        list_artists.append((a.name,a.listeners,a.id,a.bio,a.image,a.url))
     return render_template("all_artists.html",all_artists=list_artists)
 
 # artists = Artist.query.all()

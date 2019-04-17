@@ -15,9 +15,10 @@ sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
 
 LFM_KEY = "118458067274abc2709c8f06d5180c7b"
 
+##### Getting Last.fm top 50 tracks info #####
 LFM_CACHE_FNAME = "lfm_top_tracks.json"
 
-#testing to see if cache file for lfm requests already exists:
+# testing to see if cache file for lfm tracks requests already exists:
 try:
     lfm_cache_file = open(LFM_CACHE_FNAME, "r")
     lfm_cache_data = lfm_cache_data.read()
@@ -37,15 +38,13 @@ data = json.loads(response.text.encode("utf-8"))
 with open(LFM_CACHE_FNAME, "w") as lfm_cache_object:
     lfm_cache_object.write(json.dumps(data))
 
-# creating a list of tracks
+### creating a list of tracks ###
 lfm_search_result = data
 lfm_track_lst = [["Title","Artist","Playcount","URL","Image"]]
-
 # function to extract track information into a list
 def create_track_list(track):
     track_info = [track["name"],track["artist"]["name"],track["playcount"],track['url'],track['image'][2]['#text']]
     lfm_track_lst.append(track_info)
-
 # invoking the function
 for track in lfm_search_result["tracks"]["track"]:
     create_track_list(track)
@@ -58,7 +57,7 @@ df_tracks = df_tracks.drop(0)
 df_tracks.to_csv("top_tracks.csv",index=False)
 
 
-#  Getting Artist Info
+##### Getting Artist Info #####
 ART_CACHE_FNAME = "top_artist_info.json"
 # testing to see if cache file already exists:
 try:
@@ -95,20 +94,18 @@ def get_artist(artist):
         return art_diction_cache[unique_identifier]
 
 
-# making API requests for the artists in the top tracks list
+### making API requests for the artists in the top tracks list ###
 for row in lfm_track_lst[1:]:
     get_artist(row[1])
     # get_artist(artist)
 
-# extracting artist information into a list
+### extracting artist information into a list ###
 artist_search_result = art_diction_cache
 lfm_artist_lst = [["Name","Listeners","Playcount","Bio","URL","Image"]]
-
-# creating function to add to list
+# creating function to add to artist list
 def create_artist_list(artist):
-    artist_info = [artist_search_result[artist]["artist"]["name"],artist_search_result[artist]["artist"]["stats"]["listeners"],artist_search_result[artist]["artist"]["stats"]["playcount"],artist_search_result[artist]["artist"]["bio"]["content"],artist_search_result[artist]['artist']['url'],artist_search_result[artist]['artist']['image'][2]["#text"]]
+    artist_info = [artist_search_result[artist]["artist"]["name"],artist_search_result[artist]["artist"]["stats"]["listeners"],artist_search_result[artist]["artist"]["stats"]["playcount"],artist_search_result[artist]["artist"]["bio"]["summary"],artist_search_result[artist]['artist']['url'],artist_search_result[artist]['artist']['image'][2]["#text"]]
     lfm_artist_lst.append(artist_info)
-
 # invoking the function
 for artist in artist_search_result:
     create_artist_list(artist)
@@ -118,9 +115,7 @@ df_artists = pd.DataFrame(lfm_artist_lst)
 header = df_artists.iloc[0]
 df_artists = df_artists.rename(columns = header)
 df_artists = df_artists.drop(0)
-# df_artists.to_csv("more.csv",index=False)
 
-# cleaning artist dataset
 
 ##### Setting up flask application #####
 app = Flask(__name__)
@@ -132,18 +127,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./lastfm_top_tracks.db' # TOD
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Set up Flask debug stuff
 db = SQLAlchemy(app) # For database use
 session = db.session # to make queries easy
 
-# cleaning data in artists dataframe
+##### cleaning data in artists dataframe #####
 bio_list = []
 df_artists["Bio"] = df_artists["Bio"].str.replace("\n"," ")
+for bio in df_artists["Bio"]:
+    clean = bio.split(" <a")
+    clean = clean[0]
+    bio_list.append(clean)
+df_artists["Bio"] = bio_list
 # saving cleaned artist file as CSV
 df_artists.to_csv("cleaned_artists.csv",index=False)
 
 
-##### creating graphs ######
+##### creating artist statistics graphs ######
 df_artists["Listeners"] = pd.to_numeric(df_artists["Listeners"])
 from matplotlib import rcParams # to adjust the layout of the figure when saves as image
 rcParams.update({'figure.autolayout': True})
@@ -227,11 +226,11 @@ with open("top_tracks.csv") as csvfile2:
     for row in readCSV:
         tracks_list.append(row)
 
-# invoking Artist class to add to table
+# invoking Artist class to add data to table
 for artist in artists_list[1:]:
-    # print(artist[0])
+    # print(artist[3])
     create_artist(artist)
 
-# invoking Track class to add to table
+# invoking Track class to add data to table
 for track in tracks_list[1:]:
     create_track(track)
