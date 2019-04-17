@@ -128,7 +128,7 @@ app.debug = True
 app.use_reloader = True
 app.config['SECRET_KEY'] = 'asdadafaads'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./sample_tracks.db' # TODO: decide what your new database name will be -- that has to go here
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./lastfm_top_tracks.db' # TODO: decide what your new database name will be -- that has to go here
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

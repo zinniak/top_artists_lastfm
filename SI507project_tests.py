@@ -2,7 +2,7 @@ import unittest
 import csv
 import json
 import sqlite3
-from SI507final_tools import *
+from SI507project_tools import *
 
 # testing content in json files
 class JsonFiles(unittest.TestCase):
