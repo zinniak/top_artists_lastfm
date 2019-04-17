@@ -10,8 +10,13 @@ My project is a Flask application that shows details about the top 50 music trac
 3.  To run the Flask application, type `python SI507project_app.py runserver` in the command prompt.
 4. The application will begin running, open up a tab in a web-browser and type the following in the URL bar: `127.0.0.1:5000`.
 ## How to use
-1.  Click on the links on the top left to navigate to different routes of the application ![Screenshot of navigation links](screenshots/navigation.JPG)
-2.  On the `List of Artists` page, click on an artist's name to see their image on the left. ![Artist picture displayed on screen after clicking artist name](screenshots/artist_details.JPG)
+1.  Click on the links on the top left to navigate through the different routes of the application.
+
+![Screenshot of navigation links](screenshots/navigation.JPG)
+
+2.  On the `List of Artists` page, click on an artist's name to see their image on the left.
+
+![Artist picture displayed on screen after clicking artist name](screenshots/artist_details.JPG)
 
 ## Routes in this application
 -  `/` -> this is the home page, it shows details about the top 50 tracks on the music platform Last.fm

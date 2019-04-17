@@ -38,12 +38,12 @@ li:hover{
     </header>
     <main>
     <h1>Lastfm Top Tracks: List of Artists</h1>
-      <h2>Click on an artist name to see their picture!</h2>
+      <h2>Click on an artist's name to see their picture!</h2>
       <div id='main'>
     <div class="list">
         <ul>
           {% for art in all_artists %}
-          <li onclick="getPic('{{ art[4] }}')")>{{ art[0] }} - {{ art[1] }} listeners</li>
+          <li onclick="getPic('{{ art[4] }}')">{{ art[0] }} - {{ art[1] }} listeners</li>
           <div class = 'bio'>
             <p>{{ art[3] }} Learn more at: <a href="{{ art[5] }}">{{ art[5] }}</a></p>
           </div>
