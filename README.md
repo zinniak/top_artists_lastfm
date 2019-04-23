@@ -8,7 +8,7 @@ My project is a Flask application that shows details about the top 50 music trac
 1.  First, you should install requirement with `pip install -r requirements.txt`.
 2.  Second, you should run the `SI507project_tools.py` file to create the necessary files for the Flask application to run.
 3.  To run the Flask application, type `python SI507project_app.py runserver` in the command prompt.
-4. The application will begin running, open up a tab in a web-browser and type the following in the URL bar: `127.0.0.1:5000`.
+4. The application will begin running, open up a tab in a web-browser and type the following in the URL bar: `127.0.0.1:5000`. This will take you to the home page of the route with a list of the top 50 artists on Last.fm.
 ## How to use
 1.  Click on the links on the top left to navigate through the different routes of the application.
 
@@ -46,10 +46,7 @@ My project is a Flask application that shows details about the top 50 music trac
 
 ---
 ## Code Requirements for Grading
-Please check the requirements you have accomplished in your code as demonstrated.
--  [x] This is a completed requirement.
--  [ ] This is an incomplete requirement.
-Below is a list of the requirements listed in the rubric for you to copy and paste.  See rubric on Canvas for more details.
+
 ### General
 -  [x] Project is submitted as a Github repository
 -  [x] Project includes a working Flask application that runs locally on a computer
@@ -82,4 +79,4 @@ Below is a list of the requirements listed in the rubric for you to copy and pas
 -  [ ] Caching of data you continually retrieve from the internet in some way
 ### Submission
 -  [x] I included a link to my GitHub repository with the correct permissions on Canvas! (Did you though? Did you actually? Are you sure you didn't forget?)
--  [ ] I included a summary of my project and how I thought it went **in my Canvas submission**!
+-  [x] I included a summary of my project and how I thought it went **in my Canvas submission**!
