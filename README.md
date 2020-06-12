@@ -1,7 +1,3 @@
-# SI507Final_Project_zinniak
-
-[Link to this repository](https://github.com/zinniak/SI507Final_Project_zinniak)
----
 ## Project Description
 My project is a Flask application that shows details about the top 50 music tracks on the music platform Last.fm. The home shows details about each of the tracks. There is a route to look at the list of all the artists that have songs in the Last.fm top 50 tracks list. Another route shows bar charts of the number of listeners and play count each of these artists have on Last.fm. Users can click on each artist’s name on the artist details route to see their picture. Users can also click on a navigation bar to navigate through the different routes.
 ## How to run
